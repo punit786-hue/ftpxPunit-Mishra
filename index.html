@@ -40,7 +40,7 @@
     100% { left: 130%; }
   }
 
-  /* ── HEADER — forced one line ── */
+  /* ── HEADER ── */
   .header {
     padding: 26px 16px 8px;
     text-align: center;
@@ -52,40 +52,57 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    /* scale font with vw so it always fits in one line */
     font-size: clamp(10px, 5vw, 24px);
     letter-spacing: 0.2px;
   }
 
   /* ── SUBTITLE ── */
   .subtitle {
-    padding: 6px 20px 0px;
+    padding: 6px 20px 0;
     font-size: clamp(14px, 3.8vw, 17px);
     font-weight: 500;
     color: #fff;
     text-align: center;
   }
 
-  /* ── ARROWS + VIDEO DEKHO in one row ── */
+  /* ── VIDEO DEKHO NEW STYLE ── */
   .watch-block {
+    padding: 28px 20px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Green dot + text in one row */
+  .video-dekho-row {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0;
-    padding: 30px 20px 10px;
+    gap: 10px;
   }
-  .arrow-svg {
-    width: 64px;
-    height: 52px;
+  .green-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #00FF00;
     flex-shrink: 0;
   }
-  .video-dekho {
-    font-size: clamp(14px, 4vw, 17px);
-    font-weight: 700;
+  .video-dekho-text {
+    font-size: clamp(20px, 6vw, 26px);
+    font-weight: 800;
     color: #fff;
     white-space: nowrap;
-    flex: 1;
-    text-align: center;
+  }
+
+  /* Single down arrow below text */
+  .down-arrow {
+    display: flex;
+    justify-content: center;
+  }
+  .down-arrow svg {
+    width: 28px;
+    height: 34px;
   }
 
   /* ── VIDEO BOX ── */
@@ -116,7 +133,7 @@
     line-height: 1.1;
   }
 
-  /* ── APPLY KARO BUTTON ── */
+  /* ── APPLY KARO ── */
   .apply-wrap {
     padding: 20px 20px 0;
   }
@@ -141,16 +158,17 @@
   /* ── ONLY FOR ── */
   .only-for {
     padding: 28px 20px 30px;
+    text-align: center;
   }
   .only-for p {
     font-size: clamp(13px, 3.6vw, 15px);
     font-weight: 800;
     color: #fff;
-    margin-bottom: 12px;
-    text-align: left;
+    margin-bottom: 14px;
+    text-align: center;
   }
 
-  /* ── ANIMATED WAVY LINE — seamless full-width loop ── */
+  /* ── ANIMATED WAVY LINE ── */
   .wavy-wrap {
     width: 100%;
     overflow: hidden;
@@ -165,10 +183,7 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-480px); }
   }
-  .wavy-inner svg {
-    display: block;
-    flex-shrink: 0;
-  }
+  .wavy-inner svg { display: block; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -176,7 +191,7 @@
 <!-- TOP GREEN BAR -->
 <div class="top-bar"></div>
 
-<!-- HEADER — one line gradient -->
+<!-- HEADER -->
 <div class="header">
   <h1>Financial Transformation Program</h1>
 </div>
@@ -184,21 +199,18 @@
 <!-- SUBTITLE -->
 <div class="subtitle">🎯 ₹0 &nbsp;→&nbsp; Time Freedom ✓</div>
 
-<!-- ARROWS + VIDEO DEKHO together -->
+<!-- VIDEO DEKHO — new style -->
 <div class="watch-block">
-  <!-- Left arrow curving down-right -->
-  <svg class="arrow-svg" viewBox="0 0 64 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M52 6 C52 6, 12 10, 10 44" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-    <polyline points="3,36 10,44 18,39" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  </svg>
-
-  <span class="video-dekho">Video Dekho 👀</span>
-
-  <!-- Right arrow curving down-left -->
-  <svg class="arrow-svg" viewBox="0 0 64 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 6 C12 6, 52 10, 54 44" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-    <polyline points="61,36 54,44 46,39" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  </svg>
+  <div class="video-dekho-row">
+    <div class="green-dot"></div>
+    <span class="video-dekho-text">Video Dekho 👀</span>
+  </div>
+  <div class="down-arrow">
+    <svg viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="14" y1="2" x2="14" y2="26" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
+      <polyline points="5,18 14,28 23,18" stroke="#aaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
 </div>
 
 <!-- VIDEO BOX -->
@@ -221,12 +233,11 @@
   <a href="https://forms.gle/2Dmb8XtCy2cF6cQK6" target="_blank" class="apply-btn">Apply Karo</a>
 </div>
 
-<!-- ONLY FOR + seamless looping wavy line -->
+<!-- ONLY FOR + wavy line -->
 <div class="only-for">
   <p>Only For 100 Seriously Interested Students</p>
   <div class="wavy-wrap">
     <div class="wavy-inner">
-      <!-- Two identical SVGs side by side for seamless loop -->
       <svg width="480" height="20" viewBox="0 0 480 20" xmlns="http://www.w3.org/2000/svg">
         <path d="M0,10 C20,3 40,17 60,10 C80,3 100,17 120,10 C140,3 160,17 180,10 C200,3 220,17 240,10 C260,3 280,17 300,10 C320,3 340,17 360,10 C380,3 400,17 420,10 C440,3 460,17 480,10"
           stroke="#cc0000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
